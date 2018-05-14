@@ -32,6 +32,7 @@
             this.txtIFC = new System.Windows.Forms.TextBox();
             this.btnBrowseIFC = new System.Windows.Forms.Button();
             this.btnConvertToObj = new System.Windows.Forms.Button();
+            this.txtMessage = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -70,17 +71,28 @@
             this.btnConvertToObj.UseVisualStyleBackColor = true;
             this.btnConvertToObj.Click += new System.EventHandler(this.btnConvertToObj_Click);
             // 
+            // txtMessage
+            // 
+            this.txtMessage.Location = new System.Drawing.Point(198, 61);
+            this.txtMessage.Multiline = true;
+            this.txtMessage.Name = "txtMessage";
+            this.txtMessage.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtMessage.Size = new System.Drawing.Size(459, 131);
+            this.txtMessage.TabIndex = 4;
+            // 
             // FrmExporter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(686, 204);
+            this.Controls.Add(this.txtMessage);
             this.Controls.Add(this.btnConvertToObj);
             this.Controls.Add(this.btnBrowseIFC);
             this.Controls.Add(this.txtIFC);
             this.Controls.Add(this.label1);
             this.Name = "FrmExporter";
             this.Text = "IFC Converter";
+            this.Load += new System.EventHandler(this.FrmExporter_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -92,6 +104,7 @@
         private System.Windows.Forms.TextBox txtIFC;
         private System.Windows.Forms.Button btnBrowseIFC;
         private System.Windows.Forms.Button btnConvertToObj;
+        private System.Windows.Forms.TextBox txtMessage;
     }
 }
 

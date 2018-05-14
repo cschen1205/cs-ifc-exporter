@@ -6,6 +6,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -13,6 +14,8 @@ namespace IfcExport
 {
     public partial class FrmExporter : Form
     {
+        delegate void StringArgReturningVoidDelegate(string text);
+
         public FrmExporter()
         {
             InitializeComponent();
@@ -42,12 +45,20 @@ namespace IfcExport
 
         private void btnConvertToObj_Click(object sender, EventArgs e)
         {
+            Convert2Obj();
+        }
+
+        private void Convert2Obj()
+        {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
 
-            saveFileDialog.Filter = "IFC Files|*.ifc";
-            saveFileDialog.Title = "Select an IFC File";
+            saveFileDialog.Filter = "OBJ Files|*.obj";
+            saveFileDialog.Title = "Export As";
 
             string currentDir = Directory.GetCurrentDirectory();
+
+            txtMessage.Text = "";
+           
 
             // Show the Dialog.  
             // If the user clicked OK in the dialog and  
@@ -58,14 +69,46 @@ namespace IfcExport
                 // Assign the cursor in the Stream to the Form's Cursor property.  
                 string outputFilePath = saveFileDialog.FileName;
 
-                IfcConvert.Convert(txtIFC.Text, outputFilePath, message =>
+                if (File.Exists(outputFilePath))
                 {
+                    File.Delete(outputFilePath);
+                }
 
+                Thread thread = new Thread(() =>
+                {
+                    IfcConvert.Convert(txtIFC.Text, outputFilePath, message =>
+                    {
+                        AppendText(message);
+                    });
                 });
+
+                thread.Start();
+                
             }
             else
             {
                 Directory.SetCurrentDirectory(currentDir);
+            }
+        }
+
+        private void FrmExporter_Load(object sender, EventArgs e)
+        {
+            txtIFC.Text = Path.Combine(IOUtils.AssemblyDirectory, "..", "..", "sample.ifc");
+        }
+
+        private void AppendText(string message)
+        {
+            // InvokeRequired required compares the thread ID of the  
+            // calling thread to the thread ID of the creating thread.  
+            // If these threads are different, it returns true.  
+            if (this.txtMessage.InvokeRequired)
+            {
+                StringArgReturningVoidDelegate d = new StringArgReturningVoidDelegate(AppendText);
+                this.Invoke(d, new object[] { message });
+            }
+            else
+            {
+                txtMessage.Text += message + "\r\n";
             }
         }
     }

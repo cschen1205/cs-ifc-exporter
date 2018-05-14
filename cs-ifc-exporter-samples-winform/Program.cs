@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace cs_ifc_exporter_samples_winform
+namespace IfcExport
 {
     static class Program
     {
