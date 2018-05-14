@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>cs-ifc-exporter</id>
+    <version>1.0.1</version>
+    <authors>cschen1205</authors>
+    <owners>cschen1205</owners>
+    <licenseUrl>https://github.com/cschen1205/cs-ifc-exporter/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/cschen1205/cs-ifc-exporter</projectUrl>
+    <iconUrl>https://rawgit.com/cschen1205/cs-ifc-exporter/master/icon.jpg</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Export BIM IFC files to SVG, IGES, OBJ, XML, DAE and so on</description>
+    <releaseNotes>Library to export BIM IFC files to SVG, IGES, OBJ, XML, DAE and so on in .NET 4.6.1</releaseNotes>
+    <copyright>Copyright 2018</copyright>
+    <tags>BIM, IFC, OBJ, IGES, XML, OBJ, DAE, c-sharp</tags>
+    <dependencies>
+      
+    </dependencies>
+  </metadata>
+</package>
