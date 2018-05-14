@@ -31,7 +31,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtIFC = new System.Windows.Forms.TextBox();
             this.btnBrowseIFC = new System.Windows.Forms.Button();
-            this.btnConvertToObj = new System.Windows.Forms.Button();
+            this.btnConvert = new System.Windows.Forms.Button();
             this.txtMessage = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
@@ -61,15 +61,15 @@
             this.btnBrowseIFC.UseVisualStyleBackColor = true;
             this.btnBrowseIFC.Click += new System.EventHandler(this.btnBrowseIFC_Click);
             // 
-            // btnConvertToObj
+            // btnConvert
             // 
-            this.btnConvertToObj.Location = new System.Drawing.Point(24, 61);
-            this.btnConvertToObj.Name = "btnConvertToObj";
-            this.btnConvertToObj.Size = new System.Drawing.Size(153, 23);
-            this.btnConvertToObj.TabIndex = 3;
-            this.btnConvertToObj.Text = "Convert to OBJ";
-            this.btnConvertToObj.UseVisualStyleBackColor = true;
-            this.btnConvertToObj.Click += new System.EventHandler(this.btnConvertToObj_Click);
+            this.btnConvert.Location = new System.Drawing.Point(24, 61);
+            this.btnConvert.Name = "btnConvert";
+            this.btnConvert.Size = new System.Drawing.Size(153, 23);
+            this.btnConvert.TabIndex = 3;
+            this.btnConvert.Text = "Convert";
+            this.btnConvert.UseVisualStyleBackColor = true;
+            this.btnConvert.Click += new System.EventHandler(this.btnConvert_Click);
             // 
             // txtMessage
             // 
@@ -86,7 +86,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(686, 204);
             this.Controls.Add(this.txtMessage);
-            this.Controls.Add(this.btnConvertToObj);
+            this.Controls.Add(this.btnConvert);
             this.Controls.Add(this.btnBrowseIFC);
             this.Controls.Add(this.txtIFC);
             this.Controls.Add(this.label1);
@@ -103,7 +103,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtIFC;
         private System.Windows.Forms.Button btnBrowseIFC;
-        private System.Windows.Forms.Button btnConvertToObj;
+        private System.Windows.Forms.Button btnConvert;
         private System.Windows.Forms.TextBox txtMessage;
     }
 }

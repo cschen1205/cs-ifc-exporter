@@ -43,12 +43,7 @@ namespace IfcExport
             }
         }
 
-        private void btnConvertToObj_Click(object sender, EventArgs e)
-        {
-            Convert2Obj();
-        }
-
-        private void Convert2Obj()
+        private void btnConvert_Click(object sender, EventArgs e)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
 
@@ -68,29 +63,29 @@ namespace IfcExport
                 Directory.SetCurrentDirectory(currentDir);
                 // Assign the cursor in the Stream to the Form's Cursor property.  
                 string outputFilePath = saveFileDialog.FileName;
+                
 
                 if (File.Exists(outputFilePath))
                 {
                     File.Delete(outputFilePath);
                 }
 
-                Thread thread = new Thread(() =>
+                IfcConvert.Convert(txtIFC.Text, outputFilePath, message =>
                 {
-                    IfcConvert.Convert(txtIFC.Text, outputFilePath, message =>
-                    {
-                        AppendText(message);
-                    });
+                    AppendText(message);
                 });
 
-                thread.Start();
-                
+                IfcConvert.Convert(txtIFC.Text, outputFilePath.Replace(".obj", ".xml"), message =>
+                {
+                    AppendText(message);
+                });
             }
             else
             {
                 Directory.SetCurrentDirectory(currentDir);
             }
         }
-
+        
         private void FrmExporter_Load(object sender, EventArgs e)
         {
             txtIFC.Text = Path.Combine(IOUtils.AssemblyDirectory, "..", "..", "sample.ifc");
