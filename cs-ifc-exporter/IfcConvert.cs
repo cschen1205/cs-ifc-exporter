@@ -23,7 +23,7 @@ namespace IfcExport
             File.WriteAllBytes(path, bytes);
         }
 
-        public static void Convert(string source, string target)
+        public static void Convert(string source, string target, Action<string> callback = null)
         {
             InstallIfcConvert();
 
@@ -44,7 +44,13 @@ namespace IfcExport
             {
                 proc.StartInfo = info;
                 proc.Start();
-                Console.WriteLine(proc.StandardOutput.ReadToEnd());
+                string message = proc.StandardOutput.ReadToEnd();
+                if (callback != null){
+                    callback(message);
+                } else {
+                    Console.WriteLine();
+                }
+                
             }
         }
     }

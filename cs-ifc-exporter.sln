@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27130.2024
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cs-ifc-exporter", "cs-ifc-exporter\cs-ifc-exporter.csproj", "{BBF410C0-1843-4102-878F-1A9A02D22609}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cs-ifc-exporter-samples", "cs-ifc-exporter-samples\cs-ifc-exporter-samples.csproj", "{4FCF7B3D-E5DD-4971-9BA2-E38D0908B266}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{BBF410C0-1843-4102-878F-1A9A02D22609}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BBF410C0-1843-4102-878F-1A9A02D22609}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BBF410C0-1843-4102-878F-1A9A02D22609}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4FCF7B3D-E5DD-4971-9BA2-E38D0908B266}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FCF7B3D-E5DD-4971-9BA2-E38D0908B266}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FCF7B3D-E5DD-4971-9BA2-E38D0908B266}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FCF7B3D-E5DD-4971-9BA2-E38D0908B266}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
